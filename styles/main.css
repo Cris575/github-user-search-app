@@ -1,0 +1,126 @@
+:root {
+    --primary-color: #141C2F;
+    --secondary-color: #fff;
+    --tertiary-color: #1F2A48;
+    --bg-button: #0478FC;
+    --bg-stats: #141C2F;
+    --color-login: #3765A8;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* general styles */
+
+.flex {
+    display: flex;
+}
+
+body {
+    display: grid;
+    place-items: center;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    height: 100dvh;
+}
+
+.main-container {
+    margin: 0 auto;
+    width: 30%;
+}
+
+
+section.container>div {
+    margin-top: 2rem;
+    background-color: var(--tertiary-color);
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.user-info-container {
+    gap: 1rem;
+    padding: 2.5rem;
+    border-radius: 0.5rem;
+    width: 100%;
+
+    & img#user-avatar {
+        width: 5rem;
+        height: 5rem;
+        border-radius: 50%;
+    }
+
+    & div.contact-info {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    & div.user {
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+
+
+div.search-container {
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+
+    & input.search-input {
+        background-color: transparent;
+        border: none;
+        height: 37px;
+        flex: 1;
+        /* outline: none; */
+        color: var(--secondary-color);
+
+        &::placeholder {
+            color: var(--secondary-color);
+        }
+    }
+
+    & button.search-button {
+        padding: 0.7rem 1rem;
+        border-radius: 0.5rem;
+        border: none;
+        background-color: var(--bg-button);
+        color: var(--secondary-color);
+        cursor: pointer;
+
+    }
+}
+
+table.repos-stats {
+    background-color: var(--bg-stats);
+    padding: 1em;
+    border-radius: .5rem;
+    width: 100%;
+    text-align: left;
+    margin: 2rem 0;
+
+    & th {
+        font-size: 0.8rem;
+    }
+
+    & td {
+        font-weight: bold;
+    }
+}
+
+#user-login {
+    display: inline-block;
+    margin: 0.5rem 0 1rem;
+    font-size: 0.8rem;
+    color: var(--color-login);
+}

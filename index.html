@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/styles/main.css">
+  <title>github-user-search-app</title>
+</head>
+
+<body>
+  <div class="main-container">
+    <header class="header">
+      <h1>devfinder</h1>
+      <span>LIGHT <img src="/assets/icon-sun.svg" alt="icon-sun"></span>
+    </header>
+    <main>
+      <section class="container">
+        <div class="search-container flex">
+          <label for="username">
+            <img src="/assets/icon-search.svg" alt="icon-search">
+          </label>
+          <input type="text" id="username" class="search-input" placeholder="Search GitHub username..."
+            autocomplete="off">
+          <button class="search-button">Search</button>
+        </div>
+        <div class="user-info-container flex">
+          <img src="" alt="img-user" id="user-avatar">
+          <div style="width: 100%;">
+            <div class="user flex">
+              <h2 id="user-name"></h2>
+              <span id="user-date"></span>
+            </div>
+            <p id="user-login"></p>
+            <p id="user-bio"></p>
+            <div class="repos-container">
+              <table class="repos-stats">
+                <thead>
+                  <tr>
+                    <th>Repos</th>
+                    <th>Followers</th>
+                    <th>Following</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td id="user-repos"></td>
+                    <td id="user-followers"></td>
+                    <td id="user-following"></td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="contact-info">
+                <div class="container-location">
+                  <img src="/assets/icon-location.svg" alt="icon-location">
+                  <span id="user-location"></span>
+                </div>
+                <div class="container-twitter">
+                  <img src="/assets/icon-twitter.svg" alt="icon-twitter">
+                  <span id="user-twitter"></span>
+                </div>
+                <div class="container-blog">
+                  <img src="/assets/icon-website.svg" alt="icon-link">
+                  <span id="user-blog"></span>
+                </div>
+                <div class="container-company">
+                  <img src="/assets/icon-company.svg" alt="icon-company">
+                  <span id="user-company"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/module.js"></script>
+</body>
+
+</html>
