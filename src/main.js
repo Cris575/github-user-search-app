@@ -49,3 +49,19 @@ function getMonth(month) {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   return months[month];
 }
+
+
+window.addEventListener('load', () => {
+  changeMode();
+});
+
+
+function changeMode() {
+  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    $('#icon-mode').src = '/assets/icon-sun.svg';
+    $('#mode-text').textContent = 'LIGHT';
+  } else {
+    $('#icon-mode').src = '/assets/icon-moon.svg';
+    $('#mode-text').textContent = 'DARK';
+  }
+}

@@ -7,6 +7,15 @@
     --color-login: #3765A8;
 }
 
+.light-mode {
+    --primary-color: #F6F8FF;
+    --secondary-color: #4B6A9B;
+    --tertiary-color: #FFFFFF;
+    --bg-button: #0478FC;
+    --bg-stats: #F6F8FF;
+    --color-login: #3765A8;
+}
+
 *,
 *::before,
 *::after {
@@ -14,6 +23,8 @@
     margin: 0;
     padding: 0;
 }
+
+
 
 /* general styles */
 
@@ -24,8 +35,6 @@
 body {
     display: grid;
     place-items: center;
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
     height: 100dvh;
 }
 
@@ -37,7 +46,6 @@ body {
 
 section.container>div {
     margin-top: 2rem;
-    background-color: var(--tertiary-color);
 }
 
 header {
@@ -83,11 +91,8 @@ div.search-container {
         height: 37px;
         flex: 1;
         /* outline: none; */
-        color: var(--secondary-color);
 
-        &::placeholder {
-            color: var(--secondary-color);
-        }
+
     }
 
     & button.search-button {
@@ -123,4 +128,65 @@ table.repos-stats {
     margin: 0.5rem 0 1rem;
     font-size: 0.8rem;
     color: var(--color-login);
+}
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+    }
+
+    div.search-container {
+        box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.19);
+    }
+
+    input.search-input {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+
+        &::placeholder {
+            color: var(--secondary-color);
+        }
+    }
+
+    section.container>div {
+        background-color: var(--tertiary-color);
+        color: var(--secondary-color);
+    }
+
+    #user-bio {
+        color: var(--secondary-color);
+    }
+
+    table.repos-stats {
+        background-color: var(--bg-stats);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+    }
+
+    input.search-input {
+        background-color: var(--primary-color);
+        color: var(--secondary-color);
+
+        &::placeholder {
+            color: var(--secondary-color);
+        }
+    }
+
+    section.container>div {
+        background-color: var(--tertiary-color);
+    }
+
+    #user-bio {
+        color: var(--secondary-color);
+    }
+
+    table.repos-stats {
+        background-color: var(--bg-stats);
+    }
 }
