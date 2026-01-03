@@ -4,5 +4,6 @@ export default defineConfig({
     // Configuraciones aquí
     server: {
         port: 3000,
-    }
-})
+    },
+    base: '/github-user-search-app/'
+});
