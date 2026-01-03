@@ -5,5 +5,5 @@ export default defineConfig({
     server: {
         port: 3000,
     },
-    base: '/github-user-search-app/'
+    base: 'https://Cris575.github.io/github-user-search-app'
 });
