@@ -1,19 +1,15 @@
-:root {
-    --primary-color: #141C2F;
-    --secondary-color: #fff;
-    --tertiary-color: #1F2A48;
-    --bg-button: #0478FC;
-    --bg-stats: #141C2F;
-    --color-login: #3765A8;
-}
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
 
+:root,
 .light-mode {
     --primary-color: #F6F8FF;
     --secondary-color: #4B6A9B;
     --tertiary-color: #FFFFFF;
-    --bg-button: #0478FC;
+    --bg-button: #0079FF;
     --bg-stats: #F6F8FF;
     --color-login: #3765A8;
+    --bg-input: #FFFFFF;
+    --bg-stats-text: #2B3442;
 }
 
 *,
@@ -22,9 +18,50 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Space Mono", monospace;
+    font-style: normal;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 120%;
+    letter-spacing: 0;
+}
+
+h2#user-name {
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 120%;
+}
+
+#user-date {
+    font-size: 15px;
+    line-height: 150%;
+    color: var(--secondary-color);
+}
+
+#user-login {
+    display: inline-block;
+    margin: 0.5rem 0 1rem;
+    font-size: 16px;
+    line-height: 150%;
+    color: var(--bg-button);
+}
+
+#mode-text {
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 140%;
+    letter-spacing: 2.5px;
 }
 
 
+#user-bio {
+    font-size: 15px;
+    line-height: 150%;
+    color: var(--secondary-color);
+}
 
 /* general styles */
 
@@ -36,16 +73,23 @@ body {
     display: grid;
     place-items: center;
     height: 100dvh;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+body:not(.dark-mode) div.search-container {
+    box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.19);
 }
 
 .main-container {
     margin: 0 auto;
-    width: 30%;
+    width: 45.625rem;
 }
 
 
 section.container>div {
     margin-top: 2rem;
+    background-color: var(--bg-input);
 }
 
 header {
@@ -54,14 +98,14 @@ header {
 }
 
 .user-info-container {
-    gap: 1rem;
+    gap: 2rem;
     padding: 2.5rem;
     border-radius: 0.5rem;
     width: 100%;
 
     & img#user-avatar {
-        width: 5rem;
-        height: 5rem;
+        width: 7.313rem;
+        height: 7.313rem;
         border-radius: 50%;
     }
 
@@ -69,28 +113,45 @@ header {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 1rem;
+
+        & div {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
     }
 
     & div.user {
         align-items: center;
         justify-content: space-between;
     }
+
+    & div.m-l {
+        margin-left: 150px;
+    }
+
 }
-
-
 
 div.search-container {
     align-items: center;
     gap: 1rem;
     padding: 0.5rem;
     border-radius: 0.5rem;
+    background-color: var(--bg-input);
 
     & input.search-input {
         background-color: transparent;
         border: none;
         height: 37px;
         flex: 1;
-        /* outline: none; */
+        outline: none;
+
+        &::placeholder {
+            font-family: "Space Mono", monospace;
+            font-size: 18px;
+            line-height: 140%;
+            color: var(--secondary-color);
+        }
 
 
     }
@@ -100,10 +161,19 @@ div.search-container {
         border-radius: 0.5rem;
         border: none;
         background-color: var(--bg-button);
-        color: var(--secondary-color);
+        color: var(--tertiary-color);
         cursor: pointer;
+        font-size: 16px;
+        font-weight: bold;
+        line-height: 150%;
+
 
     }
+}
+
+.user-div {
+    flex: 1;
+    justify-content: space-between;
 }
 
 table.repos-stats {
@@ -115,78 +185,64 @@ table.repos-stats {
     margin: 2rem 0;
 
     & th {
-        font-size: 0.8rem;
+        font-size: 13px;
+        line-height: 150%;
+        color: var(--secondary-color);
+        font-weight: 400;
     }
 
     & td {
         font-weight: bold;
+        font-size: 22px;
+        line-height: auto;
+        color: var(--bg-stats-text);
     }
 }
 
-#user-login {
-    display: inline-block;
-    margin: 0.5rem 0 1rem;
-    font-size: 0.8rem;
-    color: var(--color-login);
+.container-location {
+    font-size: 15px;
+    line-height: 150%;
+    color: var(--secondary-color);
 }
 
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: var(--primary-color);
-        color: var(--secondary-color);
+@media(max-width: 768px) {
+    .main-container {
+        width: 90%;
     }
 
-    div.search-container {
-        box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.19);
-    }
+    .user-info-container {
 
-    input.search-input {
-        background-color: var(--primary-color);
-        color: var(--secondary-color);
+        /* Mantenemos tus estilos */
+        & img#user-avatar {
+            width: 4.375rem;
+            height: 4.375rem;
+        }
 
-        &::placeholder {
-            color: var(--secondary-color);
+        & div.user {
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        & div.m-l {
+            margin-left: 0;
+        }
+
+        /* REUBICADO: Contacto en una sola columna (uno debajo de otro) */
+        & div.contact-info {
+            grid-template-columns: 1fr;
+            gap: 1rem;
         }
     }
 
-    section.container>div {
-        background-color: var(--tertiary-color);
-        color: var(--secondary-color);
+    .user-div {
+        flex-direction: column;
     }
 
     #user-bio {
-        color: var(--secondary-color);
+        margin-top: 32px;
     }
 
-    table.repos-stats {
-        background-color: var(--bg-stats);
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: var(--primary-color);
-        color: var(--secondary-color);
-    }
-
-    input.search-input {
-        background-color: var(--primary-color);
-        color: var(--secondary-color);
-
-        &::placeholder {
-            color: var(--secondary-color);
-        }
-    }
-
-    section.container>div {
-        background-color: var(--tertiary-color);
-    }
-
-    #user-bio {
-        color: var(--secondary-color);
-    }
-
-    table.repos-stats {
-        background-color: var(--bg-stats);
+    #user-login {
+        margin: 0;
     }
 }

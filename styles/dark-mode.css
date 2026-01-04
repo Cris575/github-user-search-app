@@ -1,0 +1,14 @@
+@media (prefers-color-scheme: dark) {
+
+    :root,
+    .dark-mode {
+        --primary-color: #141C2F;
+        --secondary-color: #fff;
+        --tertiary-color: #1F2A48;
+        --bg-button: #0478FC;
+        --bg-stats: #141C2F;
+        --color-login: #3765A8;
+        --bg-input: #1E2A47;
+        --bg-stats-text: #fff;
+    }
+}

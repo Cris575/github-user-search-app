@@ -6,14 +6,18 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="/styles/main.css">
+  <link rel="stylesheet" href="/styles/dark-mode.css">
   <title>github-user-search-app</title>
+  <script type="module" src="/src/main.js"></script>
+  <script type="module" src="/src/module.js"></script>
 </head>
 
-<body>
+<body class="dark-mode">
   <div class="main-container">
     <header class="header">
-      <h1>devfinder</h1>
-      <div class="mode"><span id="mode-text">LIGHT</span> <img id="icon-mode" src="/assets/icon-sun.svg" alt="icon-sun">
+      <h1 class="space-mono">devfinder</h1>
+      <div class="mode space-mono"><span id="mode-text">LIGHT</span> <img id="icon-mode" src="/assets/icon-sun.svg"
+          alt="icon-sun">
       </div>
     </header>
     <main>
@@ -24,61 +28,74 @@
           </label>
           <input type="text" id="username" class="search-input" placeholder="Search GitHub username..."
             autocomplete="off">
-          <button class="search-button">Search</button>
+          <button class="search-button space-mono">Search</button>
         </div>
         <div class="user-info-container flex">
-          <img src="/assets/img-user.png" alt="img-user" id="user-avatar">
           <div style="width: 100%;">
+
             <div class="user flex">
-              <h2 id="user-name"></h2>
-              <span id="user-date"></span>
+              <div class="flex" style="gap: 32px; align-items: center; flex: 1;">
+                <div>
+                  <img src="/assets/img-user.png" alt="img-user" id="user-avatar">
+                </div>
+                <div class="flex user-div">
+                  <div>
+                    <h2 id="user-name"></h2>
+                    <p id="user-login"></p>
+                  </div>
+                  <span id="user-date"></span>
+
+                </div>
+
+              </div>
             </div>
-            <p id="user-login"></p>
-            <p id="user-bio"></p>
-            <div class="repos-container">
-              <table class="repos-stats">
-                <thead>
-                  <tr>
-                    <th>Repos</th>
-                    <th>Followers</th>
-                    <th>Following</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td id="user-repos"></td>
-                    <td id="user-followers"></td>
-                    <td id="user-following"></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="contact-info">
-                <div class="container-location">
-                  <img src="/assets/icon-location.svg" alt="icon-location">
-                  <span id="user-location"></span>
-                </div>
-                <div class="container-twitter">
-                  <img src="/assets/icon-twitter.svg" alt="icon-twitter">
-                  <span id="user-twitter"></span>
-                </div>
-                <div class="container-blog">
-                  <img src="/assets/icon-website.svg" alt="icon-link">
-                  <span id="user-blog"></span>
-                </div>
-                <div class="container-company">
-                  <img src="/assets/icon-company.svg" alt="icon-company">
-                  <span id="user-company"></span>
+            <div class="m-l">
+              <p id="user-bio"></p>
+              <div class="repos-container">
+                <table class="repos-stats">
+                  <thead>
+                    <tr>
+                      <th>Repos</th>
+                      <th>Followers</th>
+                      <th>Following</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td id="user-repos"></td>
+                      <td id="user-followers"></td>
+                      <td id="user-following"></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <div class="contact-info">
+                  <div class="container-location">
+                    <img src="/assets/icon-location.svg" alt="icon-location">
+                    <span id="user-location"></span>
+                  </div>
+                  <div class="container-twitter">
+                    <img src="/assets/icon-twitter.svg" alt="icon-twitter">
+                    <span id="user-twitter"></span>
+                  </div>
+                  <div class="container-blog">
+                    <img src="/assets/icon-website.svg" alt="icon-link">
+                    <span id="user-blog"></span>
+                  </div>
+                  <div class="container-company">
+                    <img src="/assets/icon-company.svg" alt="icon-company">
+                    <span id="user-company"></span>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
     </main>
   </div>
 
-  <script type="module" src="/src/main.js"></script>
-  <script type="module" src="/src/module.js"></script>
+
 </body>
 
 </html>

@@ -30,7 +30,7 @@ function ShowInfo(user) {
   }
 
   $('#user-avatar').src = user.avatar_url;
-  $('#user-login').textContent = user.login;
+  $('#user-login').textContent = "@" + user.login;
   $('#user-name').textContent = user.name;
   $('#user-location').textContent = user.location ?? "Location not available";
   $('#user-company').textContent = user.company ?? "Company not available";
@@ -43,25 +43,28 @@ function ShowInfo(user) {
   $('#user-following').textContent = user.following;
 }
 
-
-
 function getMonth(month) {
   const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
   return months[month];
 }
 
+window.addEventListener('load', () => {
+  changeMode();
+});
 
-// window.addEventListener('load', () => {
-//   changeMode();
-// });
-
+$('.mode').addEventListener('click', () => {
+  changeMode();
+})
 
 function changeMode() {
-  if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    $('#icon-mode').src = '/assets/icon-sun.svg';
+  $("body").classList.toggle("dark-mode");
+  $("body").classList.toggle("light-mode");
+  if ($("body").classList.contains("dark-mode")) {
+    $('#icon-mode').src = '/github-user-search-app/assets/icon-sun.svg';
     $('#mode-text').textContent = 'LIGHT';
   } else {
-    $('#icon-mode').src = '/assets/icon-moon.svg';
+    $('#icon-mode').src = '/github-user-search-app/assets/icon-moon.svg';
     $('#mode-text').textContent = 'DARK';
+
   }
 }
