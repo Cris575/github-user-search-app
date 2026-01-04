@@ -51,9 +51,9 @@ function getMonth(month) {
 }
 
 
-window.addEventListener('load', () => {
-  changeMode();
-});
+// window.addEventListener('load', () => {
+//   changeMode();
+// });
 
 
 function changeMode() {

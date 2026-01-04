@@ -2,7 +2,6 @@ var options = {
     method: 'GET',
     headers: {
         Accept: 'application/vnd.github+json',
-        Authorization: `Bearer ${import.meta.env.VITE_GITHUB_TOKEN}`,
         'x-GitHub-Api-Version': '2022-11-28'
     }
 }
