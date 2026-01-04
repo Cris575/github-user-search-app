@@ -210,30 +210,6 @@ table.repos-stats {
         width: 90%;
     }
 
-    .user-info-container {
-
-        /* Mantenemos tus estilos */
-        & img#user-avatar {
-            width: 4.375rem;
-            height: 4.375rem;
-        }
-
-        & div.user {
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        & div.m-l {
-            margin-left: 0;
-        }
-
-        /* REUBICADO: Contacto en una sola columna (uno debajo de otro) */
-        & div.contact-info {
-            grid-template-columns: 1fr;
-            gap: 1rem;
-        }
-    }
-
     .user-div {
         flex-direction: column;
     }
