@@ -52,22 +52,20 @@
             <div class="m-l">
               <p id="user-bio"></p>
               <div class="repos-container">
-                <table class="repos-stats">
-                  <thead>
-                    <tr>
-                      <th>Repos</th>
-                      <th>Followers</th>
-                      <th>Following</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td id="user-repos"></td>
-                      <td id="user-followers"></td>
-                      <td id="user-following"></td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="repos-stats flex">
+                  <div>
+                    <span class="header">Repos</span>
+                    <span id="user-repos" class="stats"></span>
+                  </div>
+                  <div>
+                    <span class="header">Followers</span>
+                    <span id="user-followers" class="stats"></span>
+                  </div>
+                  <div>
+                    <span class="header">Following</span>
+                    <span id="user-following" class="stats"></span>
+                  </div>
+                </div>
                 <div class="contact-info">
                   <div class="container-location">
                     <img src="/assets/icon-location.svg" alt="icon-location">

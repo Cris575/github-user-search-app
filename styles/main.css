@@ -146,7 +146,7 @@ div.search-container {
         flex: 1;
         outline: none;
 
-        &::placeholder {
+        &::placeholder-shown {
             font-family: "Space Mono", monospace;
             font-size: 18px;
             line-height: 140%;
@@ -176,7 +176,7 @@ div.search-container {
     justify-content: space-between;
 }
 
-table.repos-stats {
+div.repos-stats {
     background-color: var(--bg-stats);
     padding: 1em;
     border-radius: .5rem;
@@ -184,19 +184,30 @@ table.repos-stats {
     text-align: left;
     margin: 2rem 0;
 
-    & th {
-        font-size: 13px;
-        line-height: 150%;
-        color: var(--secondary-color);
-        font-weight: 400;
+    & div {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+        flex: 1;
+
+        & span.header {
+            font-size: 13px;
+            line-height: 150%;
+            color: var(--secondary-color);
+            font-weight: 400;
+        }
+
+        & span.stats {
+            font-weight: bold;
+            font-size: 22px;
+            line-height: auto;
+            color: var(--bg-stats-text);
+        }
     }
 
-    & td {
-        font-weight: bold;
-        font-size: 22px;
-        line-height: auto;
-        color: var(--bg-stats-text);
-    }
+
+
+
 }
 
 .container-location {
@@ -206,6 +217,11 @@ table.repos-stats {
 }
 
 @media(max-width: 768px) {
+    #user-avatar {
+        width: 4.375rem !important;
+        height: 4.375rem !important;
+    }
+
     .main-container {
         width: 90%;
     }
@@ -220,5 +236,17 @@ table.repos-stats {
 
     #user-login {
         margin: 0;
+    }
+
+    div.m-l {
+        margin-left: 0 !important;
+    }
+
+    div.contact-info {
+        grid-template-columns: repeat(1, 1fr) !important;
+    }
+
+    input.search-input:placeholder-shown {
+        font-size: 0.8rem;
     }
 }
