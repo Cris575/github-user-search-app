@@ -6,15 +6,16 @@
   <link rel="icon" type="image/svg+xml" href="/github-user-search-app/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>github-user-search-app</title>
-  <script type="module" crossorigin src="/github-user-search-app/assets/index-DIAPodB5.js"></script>
-  <link rel="stylesheet" crossorigin href="/github-user-search-app/assets/index-DizLgMLD.css">
+  <script type="module" crossorigin src="/github-user-search-app/assets/index-dh7IUzEY.js"></script>
+  <link rel="stylesheet" crossorigin href="/github-user-search-app/assets/index-CpMrYZHL.css">
 </head>
 
-<body>
+<body class="dark-mode">
   <div class="main-container">
     <header class="header">
-      <h1>devfinder</h1>
-      <div class="mode"><span id="mode-text">LIGHT</span> <img id="icon-mode" src="/github-user-search-app/assets/icon-sun.svg" alt="icon-sun">
+      <h1 class="space-mono">devfinder</h1>
+      <div class="mode space-mono"><span id="mode-text">LIGHT</span> <img id="icon-mode" src="/github-user-search-app/assets/icon-sun.svg"
+          alt="icon-sun">
       </div>
     </header>
     <main>
@@ -25,58 +26,71 @@
           </label>
           <input type="text" id="username" class="search-input" placeholder="Search GitHub username..."
             autocomplete="off">
-          <button class="search-button">Search</button>
+          <button class="search-button space-mono">Search</button>
         </div>
         <div class="user-info-container flex">
-          <img src="/assets/img-user.png" alt="img-user" id="user-avatar">
           <div style="width: 100%;">
+
             <div class="user flex">
-              <h2 id="user-name"></h2>
-              <span id="user-date"></span>
+              <div class="flex" style="gap: 32px; align-items: center; flex: 1;">
+                <div>
+                  <img src="/assets/img-user.png" alt="img-user" id="user-avatar">
+                </div>
+                <div class="flex user-div">
+                  <div>
+                    <h2 id="user-name"></h2>
+                    <p id="user-login"></p>
+                  </div>
+                  <span id="user-date"></span>
+
+                </div>
+
+              </div>
             </div>
-            <p id="user-login"></p>
-            <p id="user-bio"></p>
-            <div class="repos-container">
-              <table class="repos-stats">
-                <thead>
-                  <tr>
-                    <th>Repos</th>
-                    <th>Followers</th>
-                    <th>Following</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td id="user-repos"></td>
-                    <td id="user-followers"></td>
-                    <td id="user-following"></td>
-                  </tr>
-                </tbody>
-              </table>
-              <div class="contact-info">
-                <div class="container-location">
-                  <img src="/github-user-search-app/assets/icon-location.svg" alt="icon-location">
-                  <span id="user-location"></span>
+            <div class="m-l">
+              <p id="user-bio"></p>
+              <div class="repos-container">
+                <div class="repos-stats flex">
+                  <div>
+                    <span class="header">Repos</span>
+                    <span id="user-repos" class="stats"></span>
+                  </div>
+                  <div>
+                    <span class="header">Followers</span>
+                    <span id="user-followers" class="stats"></span>
+                  </div>
+                  <div>
+                    <span class="header">Following</span>
+                    <span id="user-following" class="stats"></span>
+                  </div>
                 </div>
-                <div class="container-twitter">
-                  <img src="/github-user-search-app/assets/icon-twitter.svg" alt="icon-twitter">
-                  <span id="user-twitter"></span>
-                </div>
-                <div class="container-blog">
-                  <img src="/github-user-search-app/assets/icon-website.svg" alt="icon-link">
-                  <span id="user-blog"></span>
-                </div>
-                <div class="container-company">
-                  <img src="/github-user-search-app/assets/icon-company.svg" alt="icon-company">
-                  <span id="user-company"></span>
+                <div class="contact-info">
+                  <div class="container-location">
+                    <img src="/github-user-search-app/assets/icon-location.svg" alt="icon-location">
+                    <span id="user-location"></span>
+                  </div>
+                  <div class="container-twitter">
+                    <img src="/github-user-search-app/assets/icon-twitter.svg" alt="icon-twitter">
+                    <span id="user-twitter"></span>
+                  </div>
+                  <div class="container-blog">
+                    <img src="/github-user-search-app/assets/icon-website.svg" alt="icon-link">
+                    <span id="user-blog"></span>
+                  </div>
+                  <div class="container-company">
+                    <img src="/github-user-search-app/assets/icon-company.svg" alt="icon-company">
+                    <span id="user-company"></span>
+                  </div>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
       </section>
     </main>
   </div>
+
 
 </body>
 
