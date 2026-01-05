@@ -2,9 +2,15 @@
 import { getUserInfo, $ } from "./module.js";
 
 window.addEventListener('load', () => {
+  changeMode();
+
   getUserInfo()
     .then((data) => ShowInfo(data))
     .catch((err) => console.error(err.message));
+})
+
+$('.mode').addEventListener('click', () => {
+  changeMode();
 })
 
 $('.search-button').addEventListener('click', () => {
@@ -48,13 +54,7 @@ function getMonth(month) {
   return months[month];
 }
 
-window.addEventListener('load', () => {
-  changeMode();
-});
 
-$('.mode').addEventListener('click', () => {
-  changeMode();
-})
 
 function changeMode() {
   $("body").classList.toggle("dark-mode");
