@@ -60,10 +60,10 @@ function changeMode() {
   $("body").classList.toggle("dark-mode");
   $("body").classList.toggle("light-mode");
   if ($("body").classList.contains("dark-mode")) {
-    $('#icon-mode').src = '/github-user-search-app/assets/icon-sun.svg';
+    $('#icon-mode').src = '/assets/icon-sun.svg';
     $('#mode-text').textContent = 'LIGHT';
   } else {
-    $('#icon-mode').src = '/github-user-search-app/assets/icon-moon.svg';
+    $('#icon-mode').src = '/assets/icon-moon.svg';
     $('#mode-text').textContent = 'DARK';
 
   }
