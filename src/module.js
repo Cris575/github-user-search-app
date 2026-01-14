@@ -5,14 +5,19 @@ var options = {
         'x-GitHub-Api-Version': '2022-11-28'
     }
 }
-//octocat
 
-export async function getUserInfo(username = "octocat") {
+export async function getUserInfo(username) {
     try {
-        const response = await fetch(`https://api.github.com/users/${username}`, options)
+        const response = await fetch(`https://api.github.com/users/${username}`, options);
+
+        if (!response.ok) {
+            throw new Error(response.status === 404 ? "User not found" : "Error de API");
+        }
+
         return await response.json();
+
     } catch (error) {
-        alert(error.message);
+        throw error;
     }
 }
 

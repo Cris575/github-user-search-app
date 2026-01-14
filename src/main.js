@@ -2,39 +2,31 @@
 import { getUserInfo, $ } from "./module.js";
 
 window.addEventListener('load', () => {
-  changeMode();
-
-  getUserInfo()
-    .then((data) => ShowInfo(data))
-    .catch((err) => console.error(err.message));
+  setTheme();
+  showUserInfo(validateUser());
 })
 
-$('.mode').addEventListener('click', () => {
-  changeMode();
+$('.mode').addEventListener('click', setTheme)
+
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'Enter') {
+    validateUser();
+  }
 })
 
-$('.search-button').addEventListener('click', () => {
-  const username = $('#username').value;
-  if (username !== "") {
-    getUserInfo(username)
-      .then((data) => ShowInfo(data))
-      .catch((err) => console.error(err.message));
-  } else {
-    alert("Please enter a username");
-  }
+$('.search-button').addEventListener('click', validateUser);
 
-});
+async function validateUser() {
+  const username = $('#username').value || "octocat";
 
-function ShowInfo(user) {
+  const user = await getUserInfo(username);
 
-  const date = new Date(user.created_at);
+  showUserInfo(user);
 
-  const objDate = {
-    day: date.getDate(),
-    month: date.getMonth(),
-    year: date.getFullYear()
-  }
+}
 
+
+function showUserInfo(user) {
   $('#user-avatar').src = user.avatar_url;
   $('#user-login').textContent = "@" + user.login;
   $('#user-name').textContent = user.name;
@@ -42,11 +34,17 @@ function ShowInfo(user) {
   $('#user-company').textContent = user.company ?? "Company not available";
   $('#user-blog').textContent = user.blog;
   $('#user-twitter').textContent = user.twitter_username ?? "Not available";
-  $('#user-date').textContent = `Joined ${objDate.day} ${getMonth(objDate.month)} ${objDate.year}`;
+  $('#user-date').textContent = getDate(user.created_at);
   $('#user-bio').textContent = user.bio ?? "This profile has no bio";
   $('#user-repos').textContent = user.public_repos;
   $('#user-followers').textContent = user.followers;
   $('#user-following').textContent = user.following;
+}
+
+function getDate(userCreatedAt) {
+  const date = new Date(userCreatedAt);
+
+  return `Joined ${date.getDate()} ${getMonth(date.getMonth())} ${date.getFullYear()}`;
 }
 
 function getMonth(month) {
@@ -54,9 +52,7 @@ function getMonth(month) {
   return months[month];
 }
 
-
-
-function changeMode() {
+function setTheme() {
   $("body").classList.toggle("dark-mode");
   $("body").classList.toggle("light-mode");
   if ($("body").classList.contains("dark-mode")) {
