@@ -63,6 +63,11 @@ h2#user-name {
     color: var(--secondary-color);
 }
 
+.mode {
+    align-items: center;
+    gap: 5px;
+}
+
 /* general styles */
 
 .flex {
