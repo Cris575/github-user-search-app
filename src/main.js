@@ -8,15 +8,25 @@ window.addEventListener('load', () => {
 });
 
 function setEvents() {
-  $('body').addEventListener('keydown', (e) => { if (e.key === 'Enter') getUser(); });
-  $('.mode').addEventListener('click', () => { setTheme() });
-  $('.search-button').addEventListener('click', () => { getUser() });
+  $('body').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') getUser();
+  });
+
+  $('.mode').addEventListener('click', () => {
+    setTheme()
+  });
+
+  $('.search-button').addEventListener('click', () => {
+    getUser()
+  });
 }
 
 async function getUser() {
   const username = $('#username').value || "octocat";
   const user = await getUserInfo(username);
-  if (user !== null) showUserInfo(user);
+
+  if (user !== null)
+    showUserInfo(user);
 }
 
 function showUserInfo(user) {
