@@ -2,29 +2,22 @@
 import { getUserInfo, $ } from "./module.js";
 
 window.addEventListener('load', () => {
+  setEvents();
   setTheme();
-  showUserInfo(validateUser());
-})
+  getUser();
+});
 
-$('.mode').addEventListener('click', setTheme)
-
-window.addEventListener('keydown', (e) => {
-  if (e.key === 'Enter') {
-    validateUser();
-  }
-})
-
-$('.search-button').addEventListener('click', validateUser);
-
-async function validateUser() {
-  const username = $('#username').value || "octocat";
-
-  const user = await getUserInfo(username);
-
-  showUserInfo(user);
-
+function setEvents() {
+  $('body').addEventListener('keydown', (e) => { if (e.key === 'Enter') getUser(); });
+  $('.mode').addEventListener('click', () => { setTheme() });
+  $('.search-button').addEventListener('click', () => { getUser() });
 }
 
+async function getUser() {
+  const username = $('#username').value || "octocat";
+  const user = await getUserInfo(username);
+  if (user !== null) showUserInfo(user);
+}
 
 function showUserInfo(user) {
   $('#user-avatar').src = user.avatar_url;
@@ -43,24 +36,26 @@ function showUserInfo(user) {
 
 function getDate(userCreatedAt) {
   const date = new Date(userCreatedAt);
-
   return `Joined ${date.getDate()} ${getMonth(date.getMonth())} ${date.getFullYear()}`;
-}
-
-function getMonth(month) {
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  return months[month];
 }
 
 function setTheme() {
   $("body").classList.toggle("dark-mode");
   $("body").classList.toggle("light-mode");
+  changeIconTheme();
+}
+
+function changeIconTheme() {
   if ($("body").classList.contains("dark-mode")) {
     $('#icon-mode').src = '/assets/icon-sun.svg';
     $('#mode-text').textContent = 'LIGHT';
   } else {
     $('#icon-mode').src = '/assets/icon-moon.svg';
     $('#mode-text').textContent = 'DARK';
-
   }
+}
+
+function getMonth(month) {
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  return months[month];
 }

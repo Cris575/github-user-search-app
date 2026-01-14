@@ -17,7 +17,8 @@ export async function getUserInfo(username) {
         return await response.json();
 
     } catch (error) {
-        throw error;
+        alert(error.message);
+        return null;
     }
 }
 
